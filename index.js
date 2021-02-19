@@ -831,21 +831,25 @@ function marketNode(id) {
 }
 
 // Historical prices
-function histPrc(epic, resolution, from, to) {
+function histPrc(epic, resolution, from, to, pageSize, pageNumber) {
 
 	/**
 	 * @param {string} epic 
 	 * @param {string} resolution
 	 *	Permitted values are: DAY, HOUR, HOUR_2, HOUR_3, HOUR_4, MINUTE, MINUTE_10, MINUTE_15, MINUTE_2, MINUTE_3, 
 	 *	MINUTE_30, MINUTE_5, MONTH, SECOND, WEEK
-	 * @param {from} string
+	 * @param {string} from
 	 *	Permitted values are: 
-	 *	* @param {to} string
+	 *	* @param {string} to
 	 * Permitted values are:
+	 * @param {integer} pageSize
+	 * 	Page size to retrieve
+	 * @param {integer} pageNumber
+	 * 	Page number to retrieve
 	 */
 
 	return new Promise((res, rej) => {
-		get('/prices/' + epic + '?resolution=' + resolution + '&startdate=' + from + '&to=' + to, 3)
+		get('/prices/' + epic + '?resolution=' + resolution + '&from=' + from + '&to=' + to + '&pageSize=' + pageSize + '&pageNumber=' + pageNumber, 3)
 			.then(r => {
 				if (r.status !== 200) {
 					rej(r);
