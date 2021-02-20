@@ -831,7 +831,7 @@ function marketNode(id) {
 }
 
 // Historical prices
-function histPrc(epic, resolution, from, to, pageSize = 20) {
+function histPrc(epic, resolution, max, pageSize = 20) {
 
 	/**
 	 * @param {string} epic 
@@ -847,7 +847,7 @@ function histPrc(epic, resolution, from, to, pageSize = 20) {
 	 */
 
 	return new Promise((res, rej) => {
-		get('/prices/' + epic + '?resolution=' + resolution + '&from=' + from + '&to=' + to + '&pageSize=' + pageSize, 3)
+		get('/prices/' + epic + '?resolution=' + resolution + '&max=' + max + '&pageSize=' + pageSize, 3)
 			.then(r => {
 				if (r.status !== 200) {
 					rej(r);
