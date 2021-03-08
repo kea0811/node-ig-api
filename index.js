@@ -64,7 +64,7 @@ function _request(method, path, payload, extraHeaders) {
 		headers = Object.assign(headers, extraHeaders);
 	}
 	let reqOpts = {
-		hostname: demo ? 'demo-api.ig.com' : 'api.ig.com',
+		hostname: process.env.IG_DEMO ? 'demo-api.ig.com' : 'api.ig.com',
 		path: '/gateway/deal' + path,
 		method,
 		headers,
