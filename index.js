@@ -846,10 +846,10 @@ function histPrc(epic, resolution, max, pageSize = 20, from, to) {
 	 * 	Page size to retrieve
 	 */
 
-	 const todayDate = new Date();
+	//  const todayDate = new Date();
 
-	 if (!from) from = `${todayDate.getFullYear()}-${todayDate.getMonth() < 10 ? '0' + todayDate.getMonth() : todayDate.getMonth()}-${todayDate.getDate()}T${todayDate.getHours()}:${todayDate.getMinutes()}:${todayDate.getSeconds()}`
-	 if (!to) to = `${todayDate.getFullYear()}-${todayDate.getMonth() < 10 ? '0' + todayDate.getMonth() : todayDate.getMonth()}-${todayDate.getDate()}T${todayDate.getHours()}:${todayDate.getMinutes()}:${todayDate.getSeconds()}`
+	//  if (!from) from = `${todayDate.getFullYear()}-${todayDate.getMonth() < 10 ? '0' + todayDate.getMonth() : todayDate.getMonth()}-${todayDate.getDate()}T${todayDate.getHours()}:${todayDate.getMinutes()}:${todayDate.getSeconds()}`
+	//  if (!to) to = `${todayDate.getFullYear()}-${todayDate.getMonth() < 10 ? '0' + todayDate.getMonth() : todayDate.getMonth()}-${todayDate.getDate()}T${todayDate.getHours()}:${todayDate.getMinutes()}:${todayDate.getSeconds()}`
 
 	return new Promise((res, rej) => {
 		get('/prices/' + epic + '?resolution=' + resolution + '&max=' + max + '&pageSize=' + pageSize + '&from=' + from + '&to=' + to, 3)
