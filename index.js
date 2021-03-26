@@ -852,7 +852,7 @@ function histPrc(epic, resolution, max, pageSize = 20, from, to) {
 	//  if (!to) to = `${todayDate.getFullYear()}-${todayDate.getMonth() < 10 ? '0' + todayDate.getMonth() : todayDate.getMonth()}-${todayDate.getDate()}T${todayDate.getHours()}:${todayDate.getMinutes()}:${todayDate.getSeconds()}`
 
 	return new Promise((res, rej) => {
-		get('/prices/' + epic + '?resolution=' + resolution + '&max=' + max + '&pageSize=' + pageSize, 3)
+		get('/prices/' + epic + '?resolution=' + resolution + '&max=' + max + '&pageSize=' + pageSize + '&from=' + from + '&to=' + to, 3)
 			.then(r => {
 				if (r.status !== 200) {
 					rej(r);
